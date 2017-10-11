@@ -50,3 +50,14 @@ proc reg data=helpmkh;
 proc reg data=helpmkh;
   model indtot = cesd mcs pcs pss_fr / selection = cp best = 5;
   run;
+
+* =================================
+  compare to PROC GLM
+  which provides both Type I
+  and Type III sums of squares
+  =================================;
+
+* fit a full model and test a reduced;
+  proc glm data=helpmkh;
+  model indtot = cesd mcs pcs pss_fr;
+  run;

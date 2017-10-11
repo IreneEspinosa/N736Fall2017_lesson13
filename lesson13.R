@@ -64,9 +64,13 @@ round(data.frame(coefficients(fit.all),
 
 summary(fit.all)
 
-# look at VIF
+# look at VIF from car package
 library(car)
-vif(fit.all)
+car::vif(fit.all)
+
+# compare Type I and Type III Sums of Squares
+car::Anova(fit.all) # defaults to Type III SS
+anova(fit.all) # provides Type I SS
 
 # install olsrr package
 # developer version off github did better
