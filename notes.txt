@@ -1,0 +1,29 @@
+https://stats.idre.ucla.edu/sas/examples/chp/regression-analysis-byexample-by-chatterjee-hadi-and-pricechapter-11-variable-selection-procedures/
+
+=====================================
+PROC REG
+MODEL   / vif stb
+        / selection = forward, backward, stepwise, 
+
+selection = cp; cna also use with best = 
+===============================
+
+example at https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_reg_sect055.htm
+
+proc reg data=fitness plots(only)=cp(label);
+      model Oxygen=Age Weight RunTime RunPulse RestPulse MaxPulse
+            / selection=cp best=20;
+   run;
+================================
+proc glmselect
+
+see http://people.stat.sc.edu/hansont/stat704/notes14.pdf
+
+==================================
+tests of specific subsets
+
+https://books.google.com/books?id=JhxKC8ewcdAC&pg=PA17&lpg=PA17&dq=SAS+PROC+REG+full+reduced&source=bl&ots=SMgcQCOGiL&sig=cBs7YfmGpUIuxDLaNJqh3X-BpMU&hl=en&sa=X&ved=0ahUKEwjjg_PF5ebWAhVM7CYKHaGADM4Q6AEIUjAH#v=onepage&q=SAS%20PROC%20REG%20full%20reduced&f=false
+
+and see http://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/Regression/Topic_13.pdf
+
+
