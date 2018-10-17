@@ -108,7 +108,7 @@ ols_ovsp_plot(fit.all)
 ols_diagnostic_panel(fit.all)
 
 # stepwise variable selection
-K <- ols_stepwise(fit.all)
+k <- ols_stepwise(fit.all)
 k
 plot(k)
 

@@ -1,0 +1,39 @@
+---
+title: "My regression testing"
+author: "Princess Leia"
+date: "AUTOMATIC"
+---
+
+
+
+```{r echo=FALSE, message=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+First full model with all 4 vars
+
+```{r}
+RegModel.1 <- lm(indtot~cesd+mcs+pcs+pss_fr, data=h1)
+summary(RegModel.1)
+```
+
+```{r}
+library(MASS, pos=29)
+```
+
+
+```{r}
+stepwise(RegModel.1, direction='backward/forward', criterion='AIC')
+```
+
